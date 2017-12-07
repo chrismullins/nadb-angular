@@ -23,7 +23,8 @@ import { StatusComponent } from './components/status/status.component';
     FormsModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: 'register', component: RegisterComponent },
+      { path: 'status', component: StatusComponent }
     ])
   ],
   providers: [AuthService],
