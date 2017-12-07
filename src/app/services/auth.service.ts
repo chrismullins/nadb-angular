@@ -16,4 +16,12 @@ export class AuthService {
     let url: string = `${this.BASE_URL}/register`;
     return this.http.post(url, user, {headers: this.headers}).toPromise();
   }
+  ensureAuthenticated(token): Promise<any> {
+    let url: string = `${this.BASE_URL}/status`;
+    let headers: Headers = new Headers({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.get(url, {headers: headers}).toPromise();
+  }
 }
