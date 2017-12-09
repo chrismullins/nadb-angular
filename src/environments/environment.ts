@@ -4,5 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+//`  users_service_url: process.env.REACT_APP_USERS_SERVICE_URL
+  users_service_url: 'http://192.168.99.102'
 };
