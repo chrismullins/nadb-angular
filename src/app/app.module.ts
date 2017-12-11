@@ -11,15 +11,19 @@ import { RegisterComponent } from './components/register/register.component';
 import { StatusComponent } from './components/status/status.component';
 import { EnsureAuthenticated } from './services/ensure-authenticated.service';
 import { LoginRedirect } from './services/login-redirect.service';
+import { CollapseModule } from 'ngx-bootstrap';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    StatusComponent
+    StatusComponent,
+    NavbarComponent
   ],
   imports: [
+    CollapseModule,
     BrowserModule,
     HttpModule,
     FormsModule,
