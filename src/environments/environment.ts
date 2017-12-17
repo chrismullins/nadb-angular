@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
 //`  users_service_url: process.env.REACT_APP_USERS_SERVICE_URL
-  users_service_url: 'http://192.168.99.102'
+//  users_service_url: 'http://192.168.99.102'
+  users_service_url: 'http://127.0.0.1:5000'
 };

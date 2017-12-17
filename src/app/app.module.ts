@@ -13,6 +13,7 @@ import { EnsureAuthenticated } from './services/ensure-authenticated.service';
 import { LoginRedirect } from './services/login-redirect.service';
 import { CollapseModule } from 'ngx-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     RegisterComponent,
     StatusComponent,
-    NavbarComponent
+    NavbarComponent,
+    LogoutComponent
   ],
   imports: [
     CollapseModule,
@@ -30,7 +32,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent, canActivate: [LoginRedirect] },
       { path: 'register', component: RegisterComponent, canActivate: [LoginRedirect] },
-      { path: 'status', component: StatusComponent, canActivate: [EnsureAuthenticated] }
+      { path: 'status', component: StatusComponent, canActivate: [EnsureAuthenticated] },
+      { path: 'logout', component: LogoutComponent }
     ])
   ],
   providers: [AuthService, EnsureAuthenticated, LoginRedirect],
