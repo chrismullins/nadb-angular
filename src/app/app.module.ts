@@ -14,6 +14,9 @@ import { LoginRedirect } from './services/login-redirect.service';
 import { CollapseModule } from 'ngx-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { AlertService } from './services/alert.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { LogoutComponent } from './components/logout/logout.component';
     RegisterComponent,
     StatusComponent,
     NavbarComponent,
-    LogoutComponent
+    LogoutComponent,
+    AdminComponent,
+    AlertComponent
   ],
   imports: [
     CollapseModule,
@@ -33,10 +38,11 @@ import { LogoutComponent } from './components/logout/logout.component';
       { path: 'login', component: LoginComponent, canActivate: [LoginRedirect] },
       { path: 'register', component: RegisterComponent, canActivate: [LoginRedirect] },
       { path: 'status', component: StatusComponent, canActivate: [EnsureAuthenticated] },
-      { path: 'logout', component: LogoutComponent }
+      { path: 'logout', component: LogoutComponent },
+      { path: 'admin', component: AdminComponent, canActivate: [EnsureAuthenticated] }
     ])
   ],
-  providers: [AuthService, EnsureAuthenticated, LoginRedirect],
+  providers: [AuthService, EnsureAuthenticated, LoginRedirect, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
