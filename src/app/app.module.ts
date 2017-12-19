@@ -11,7 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { StatusComponent } from './components/status/status.component';
 import { EnsureAuthenticated } from './services/ensure-authenticated.service';
 import { LoginRedirect } from './services/login-redirect.service';
-import { CollapseModule } from 'ngx-bootstrap';
+import { CollapseModule, TabsModule } from 'ngx-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -30,7 +30,7 @@ import { AlertService } from './services/alert.service';
     AlertComponent
   ],
   imports: [
-    CollapseModule,
+    CollapseModule, TabsModule.forRoot(),
     BrowserModule,
     HttpModule,
     FormsModule,
@@ -39,7 +39,7 @@ import { AlertService } from './services/alert.service';
       { path: 'register', component: RegisterComponent, canActivate: [LoginRedirect] },
       { path: 'status', component: StatusComponent, canActivate: [EnsureAuthenticated] },
       { path: 'logout', component: LogoutComponent },
-      { path: 'admin', component: AdminComponent, canActivate: [EnsureAuthenticated] }
+      { path: 'admin', component: AdminComponent, }
     ])
   ],
   providers: [AuthService, EnsureAuthenticated, LoginRedirect, AlertService],

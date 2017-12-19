@@ -23,5 +23,9 @@ export class StatusComponent implements OnInit {
         console.log(err);
       });
     }
+
+
+
+    
   }
 }

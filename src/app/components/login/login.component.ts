@@ -19,8 +19,15 @@ export class LoginComponent {
       localStorage.setItem('token', user.json().auth_token);
       this.router.navigateByUrl('/status');
       this.alertService.success('You have logged in!');
+      this.auth.ensureAuthenticated(user.json().auth_token)
+      .then((res) => {
+        if (res.json().data.admin) {
+          this.alertService.warn('Careful, this account is admin.');
+        }
+      })
     })
     .catch((err) => {
+      this.alertService.error('Incorrect email or password.');
       console.log(err);
     });
   }

@@ -1,3 +1,27 @@
-<p>
-  admin works!
-</p>
+<tabset>
+  <tab heading='User Management'>
+  	<!-- <ul *ngFor="let user of users">
+  		<li>{{user.username}}</li>
+  	</ul> -->
+  	<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+    	<tr *ngFor="let user of users">
+    	  <td>user.id</td>
+    	  <td>user.username</td>
+    	  <td>user.email</td>
+    	</tr>
+      </tbody>
+    </table>
+  </tab>
+  <tab>
+    <ng-template tabHeading>Other Administrative Things</ng-template>
+    Tab 2 content
+  </tab>
+</tabset>
