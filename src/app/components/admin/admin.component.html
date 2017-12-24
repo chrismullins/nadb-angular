@@ -3,20 +3,30 @@
   	<!-- <ul *ngFor="let user of users">
   		<li>{{user.username}}</li>
   	</ul> -->
-  	<table class="table table-striped">
+  	<table class="table table-striped table-hover">
       <thead>
         <tr>
           <th>ID</th>
           <th>Username</th>
           <th>Email</th>
+          <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
     	<tr *ngFor="let user of users">
-    	  <td>user.id</td>
-    	  <td>user.username</td>
-    	  <td>user.email</td>
-    	</tr>
+    	  <td>{{user.id}}</td>
+    	  <td>{{user.username}}</td>
+    	  <td>{{user.email}}</td>
+        <td><span class="status text-success">&bull;</span> Active</td>
+        <td>
+          <!--<a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>-->
+          <!--<a (clicked)="deleteUserClicked()" class="settings" title="Settings" data-toggle="tooltip"><i class="fa fa-cog" aria-hidden="true"></i></a>-->
+          <!--<a (clicked)="deleteUserClicked()" class="delete" title="Delete" data-toggle="tooltip"><i class="fa fa-trash" aria-hidden="true"></i></a>-->
+          <i (click)="settingsUserClicked()" class="fa fa-cog settings" aria-hidden="true"></i>
+          <i (click)="deleteUserClicked()" class="fa fa-trash delete" aria-hidden="true"></i>
+        </td>
+      </tr>
       </tbody>
     </table>
   </tab>

@@ -10,7 +10,7 @@ export class LogoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  	localStorage.removeItem('token');
+    localStorage.removeItem('token');
   }
 
 }

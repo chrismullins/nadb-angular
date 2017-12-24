@@ -11,7 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { StatusComponent } from './components/status/status.component';
 import { EnsureAuthenticated } from './services/ensure-authenticated.service';
 import { LoginRedirect } from './services/login-redirect.service';
-import { CollapseModule, TabsModule } from 'ngx-bootstrap';
+import { CollapseModule, TabsModule, ButtonsModule, ModalModule } from 'ngx-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -30,7 +30,7 @@ import { AlertService } from './services/alert.service';
     AlertComponent
   ],
   imports: [
-    CollapseModule, TabsModule.forRoot(),
+    CollapseModule, TabsModule.forRoot(), ButtonsModule.forRoot(), ModalModule.forRoot(),
     BrowserModule,
     HttpModule,
     FormsModule,

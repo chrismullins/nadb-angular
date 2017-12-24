@@ -15,19 +15,27 @@ export class AdminComponent implements OnInit {
   //private users: object = {};
   constructor(private http: Http) { }
 
+  deleteUserClicked(): void {
+    console.log('Deleting this user.');
+  }
+
+  settingsUserClicked(): void {
+    console.log('Settings clicked.');
+  }
+
   getUsers(): Promise<any> {
-  	let url: string = `${this.BASE_URL}/users`;
-  	return this.http.get(url, {headers: this.headers}).toPromise();
-  	//return this.http.get(url, {headers: this.headers})
+    const url = `${this.BASE_URL}/users`;
+    return this.http.get(url, {headers: this.headers}).toPromise();
+    // return this.http.get(url, {headers: this.headers})
   }
 
   ngOnInit() {
-  	//console.log(this.getUsers().then);
-  	//console.log(users);
-  	this.getUsers().then( (res) => {
-  		console.log(res.json());
-  		this.users = res.json().data.users;
-  	})
+    // console.log(this.getUsers().then);
+    // console.log(users);
+    this.getUsers().then( (res) => {
+      console.log(res.json());
+      this.users = res.json().data.users;
+    });
   }
 
 
