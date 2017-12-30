@@ -17,6 +17,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { AlertService } from './services/alert.service';
+import {ModalService} from './services/modal.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { AlertService } from './services/alert.service';
       { path: 'admin', component: AdminComponent, }
     ])
   ],
-  providers: [AuthService, EnsureAuthenticated, LoginRedirect, AlertService],
+  providers: [AuthService, EnsureAuthenticated, LoginRedirect, AlertService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

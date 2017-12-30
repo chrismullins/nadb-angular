@@ -24,7 +24,15 @@
           <!--<a (clicked)="deleteUserClicked()" class="settings" title="Settings" data-toggle="tooltip"><i class="fa fa-cog" aria-hidden="true"></i></a>-->
           <!--<a (clicked)="deleteUserClicked()" class="delete" title="Delete" data-toggle="tooltip"><i class="fa fa-trash" aria-hidden="true"></i></a>-->
           <i (click)="settingsUserClicked()" class="fa fa-cog settings" aria-hidden="true"></i>
-          <i (click)="deleteUserClicked()" class="fa fa-trash delete" aria-hidden="true"></i>
+          <i (click)="deleteUserClicked(template)" class="fa fa-trash delete" aria-hidden="true"></i>
+          <br><br>
+          <ng-template #template>
+            <div class="modal-body text-center">
+              <p> Shitcan user {{user.username}}?</p>
+              <button type="button" class="btn btn-default" (click)="confirmDeleteUser(user.id)" >Yes</button>
+              <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+            </div>
+          </ng-template>
         </td>
       </tr>
       </tbody>

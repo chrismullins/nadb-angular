@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { environment } from '../../../environments/environment';
+import {ModalService} from '../../services/modal.service';
+import {noop} from 'rxjs/util/noop';
 
 
 @Component({
@@ -12,11 +14,20 @@ export class AdminComponent implements OnInit {
   private BASE_URL: string = environment.users_service_url;
   private headers: Headers = new Headers({'Content-Type': 'application/json'});
   private users: Array<any>;
+  private deleteUserModal: string = './deleteUserModal.html';
   //private users: object = {};
-  constructor(private http: Http) { }
+  constructor(private http: Http, private modal: ModalService) { }
 
-  deleteUserClicked(): void {
+  deleteUserClicked(template: TemplateRef<any>): void {
     console.log('Deleting this user.');
+    this.modal.openModal(template);
+  }
+
+  confirmDeleteUser(userid: Number): void {
+    console.log('Deleting user ' + userid);
+  }
+  decline(): void {
+    noop();
   }
 
   settingsUserClicked(): void {
