@@ -27,10 +27,16 @@
           <i (click)="deleteUserClicked(template)" class="fa fa-trash delete" aria-hidden="true"></i>
           <br><br>
           <ng-template #template>
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Modal</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modal.closeModal()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             <div class="modal-body text-center">
               <p> Shitcan user {{user.username}}?</p>
-              <button type="button" class="btn btn-default" (click)="confirmDeleteUser(user.id)" >Yes</button>
-              <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+              <button type="button" class="btn btn-default" (click)="confirmDeleteUser(user.id)" ><i class = "fa fa-trash" aria-hidden="true"></i> Shitcan</button>
+              <button type="button" class="btn btn-primary" (click)="modal.closeModal()" >Cancel</button>
             </div>
           </ng-template>
         </td>

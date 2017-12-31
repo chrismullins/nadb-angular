@@ -16,4 +16,8 @@ export class ModalService {
     this.modalRef = this.modalService.show(template);
   }
 
+  closeModal() {
+    this.modalRef.hide();
+  }
+
 }
