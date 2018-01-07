@@ -9,6 +9,7 @@ export class AuthService {
   //private BASE_URL: string = 'http://localhost:5000/auth';
   private BASE_URL: string = environment.users_service_url + '/auth';
   private headers: Headers = new Headers({'Content-Type': 'application/json'});
+  //private plainheaders: Headers = new Headers( {'Content-Type': 'text/plain'});
   constructor(private http: Http) {}
   login(user: User): Promise<any> {
     let url: string = `${this.BASE_URL}/login`;
@@ -26,4 +27,13 @@ export class AuthService {
     });
     return this.http.get(url, {headers: headers}).toPromise();
   }
+  // delete(userid: Number, token: String): Promise<any> {
+  //   let url: string = `${this.BASE_URL}/users/${userid}`
+  //   //return this.http.delete(url, {headers: this.headers}).toPromise();
+  //   let authheaders: Headers = new Headers( {
+  //     'Content-Type': '',
+  //       Authorization: `Bearer ${token}`
+  //   });
+  //   return this.http.delete(url, {headers: authheaders}).toPromise();
+  // }
 }
